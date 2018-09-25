@@ -1,0 +1,7 @@
+###
+# Lesson Test
+###
+
+# Must receives:
+
+1) Array of question objects 

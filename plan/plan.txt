@@ -1,2 +1,13 @@
-// Dima
-init
+###
+# Fastudy
+###
+
+# App contains:
+
+Directions of training:
+  * Programming,
+  * Camping,
+  * Medicine,
+  * Fishing,
+  * Art,
+  * Movies

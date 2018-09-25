@@ -1,0 +1,30 @@
+###
+# Single Test Component
+###
+
+# Must receives: 
+
+Object: {
+  ques: String,
+  vari: Array,
+  corr: String/Int,
+  numb: Int
+}, where:
+
+1) A string with question;
+2) An array of variants;
+3) The (string or index) of the correct variant;
+4) Question number
+
+# Must draws:
+
+Menu with a question,
+interactive list of options
+and the navigation button
+
+# Must returns:
+
+Object: {
+  qn: ${ question Number },
+  r: ${ right or not }
+}
