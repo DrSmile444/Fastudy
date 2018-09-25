@@ -2,6 +2,21 @@
 # Lesson Test
 ###
 
-# Must receives:
+<LessonTest>
 
-1) Array of question objects 
+# Component imports:
+  <Question>
+
+# Must receives:
+  Array: [
+    Objects<Questions>
+  ];
+
+  (from <Question>):
+  Object;
+
+# Must returns:
+  Object: {
+    points: Int(how many points are received for correct answers),
+    result: Array<Objects: <Question> >
+  }

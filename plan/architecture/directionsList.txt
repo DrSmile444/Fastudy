@@ -1,0 +1,30 @@
+###
+# Directions List
+###
+
+<DirectionsList>
+
+# Component imports:
+  <Direction>
+
+# Must receives:
+  Array of directions;
+    Directions of training:
+    * Programming,
+    * Camping,
+    * Medicine,
+    * Fishing,
+    * Art,
+    * Movies
+
+    Each direction contains:
+      Array of Objects<Questions>
+      When select a question, we should open <LessonTest> 
+
+  (from <Direction>):
+    Object
+
+# Must do:
+  Draw list of directions.
+  ? Emit value up from <Direction>
+  : Immediately work with the value

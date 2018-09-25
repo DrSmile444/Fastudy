@@ -2,12 +2,14 @@
 # Fastudy
 ###
 
+<App>
+
 # App contains:
 
-Directions of training:
-  * Programming,
-  * Camping,
-  * Medicine,
-  * Fishing,
-  * Art,
-  * Movies
+  <DirectionsList>
+
+# Description:
+  If the user opens app first time, we must show help section.
+  When the user opens app, we must draw slider and list of directions.
+
+  The app must adapt depending on the platform (Desktop, Mobile)
