@@ -49,4 +49,10 @@ export class DirectionPage {
       data: lesson
     });
   }
+
+  public addLesson() {
+    this.navCtrl.push("lesson-add-page", {
+      title: this.directionName
+    });
+  }
 }

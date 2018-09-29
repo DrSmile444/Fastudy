@@ -36,4 +36,8 @@ export class LessonPage {
       title: this.title
     });
   }
+
+  public truncate(str, maxlength) {
+    return str.length > maxlength ? str.slice(0, maxlength - 3) + "..." : str;
+  }
 }
