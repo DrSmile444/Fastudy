@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ViewController, NavParams, NavController } from "ionic-angular";
+import { ViewController, NavParams } from "ionic-angular";
 
 @Component({
   selector: "page-test-result",
@@ -9,11 +9,7 @@ export class TestResultPage {
   resultData = [];
   resultText = "";
   persentOfRigthQuestions = "";
-  constructor(
-    private view: ViewController,
-    private params: NavParams,
-    private navCtrl: NavController
-  ) {}
+  constructor(private view: ViewController, private params: NavParams) {}
 
   ionViewDidLoad() {
     this.setResultData(this.params.data.server, this.params.data.user);
