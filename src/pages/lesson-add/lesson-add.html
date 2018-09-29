@@ -18,7 +18,18 @@
     <textarea id="" cols="30" rows="5" class="lesson-create-area" placeholder="Теория..."></textarea>
   </div>
   <div class="test-selector">
-    <div class="test-selector__item" *ngIf="questions.length" *ngFor="let question of questions"></div>
-    <div class="test-selector__item test-selector__create"></div>
+
+    <div class="test-selector__item test-selector__create" *ngIf="!questions.length">
+      <p>+</p>
+    </div>
+
+    <div *ngIf="questions.length">
+      <div class="test-selector__item" *ngFor="let question of questions">{{question.title}}</div>
+      <div class="test-selector__item test-selector__create">
+        <p>+</p>
+      </div>
+    </div>
+
+
   </div>
 </ion-content>

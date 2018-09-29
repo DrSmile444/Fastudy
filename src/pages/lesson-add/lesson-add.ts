@@ -1,13 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 
-/**
- * Generated class for the LessonAddPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage({
   name: "lesson-add-page",
   segment: "lesson-add/:id"
@@ -19,7 +12,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 export class LessonAddPage {
   data = {};
   title = "";
-  questions = [];
+  questions: Array<any> = [{ title: "hey" }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -30,5 +23,11 @@ export class LessonAddPage {
     this.title = data.title;
 
     console.log("ionViewDidLoad LessonAddPage");
+  }
+
+  public addQuestion(question) {
+    this.navCtrl.push("question-add-page", {
+      question
+    });
   }
 }

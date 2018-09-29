@@ -40,7 +40,7 @@ export class DirectionPage {
   }
 
   public setLessonList() {
-    this.directionLessons = this.data.data;
+    this.directionLessons = (<any>this.data).data;
   }
 
   public onLessonClick(lesson) {
