@@ -1,0 +1,26 @@
+###
+# Lesson Data
+###
+
+<LessonData>
+
+# Must receives:
+  Array: [
+    Objects<Data>
+  ];
+
+    Data: {
+      type: String
+      style: String,
+      body: String
+    }, 
+      where type can be:
+        * image,
+        * text
+      where style can be:
+        * default,
+        * important
+      
+
+* Must do:
+  Draw 
