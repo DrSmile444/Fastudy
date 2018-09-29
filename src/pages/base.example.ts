@@ -34,7 +34,7 @@ const lessonsExample = {
           variants: ["Да", "Нет", "Сарказм", "Ничего"]
         }
       ],
-      correct: [2, 0]
+      correct: [2, 0, 0]
     }
   }
 };

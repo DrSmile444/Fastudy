@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Результаты теста!</ion-title>
+    <ion-buttons end>
+      <a href="#/"><button ion-button (click)="closeModal()">Закрити</button></a>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="result-text">
+    <h1 class="result-text__body">{{resultText}}</h1>
+    <h1 class="result-text__body">{{persentOfRigthQuestions}}</h1>
+  </div>
+  <div class="result-marks-wrapper">
+    <div class="result-marks" *ngFor="let mark of resultData; let i = index">
+      <div class="result-marks__single__true" *ngIf="mark">
+        <p>{{i + 1}}</p>
+      </div>
+      <div class="result-marks__single__false" *ngIf="!mark">
+        <p>{{i + 1}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
