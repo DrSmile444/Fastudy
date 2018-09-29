@@ -17,9 +17,14 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "question-add.html"
 })
 export class QuestionAddPage {
+  variants = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad QuestionAddPage");
+  }
+
+  public addVariant() {
+    this.variants.push("");
   }
 }

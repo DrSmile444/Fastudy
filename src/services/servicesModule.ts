@@ -1,12 +1,10 @@
 import { NgModule } from "@angular/core";
-import { HttpClient, HttpHandler } from "@angular/common/http";
-import { CommonModule } from "@angular/common";
 import { FirebaseProvider } from "./firebaseHelper";
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
+  imports: [],
   exports: [],
-  providers: [FirebaseProvider, HttpClient, HttpHandler]
+  providers: [FirebaseProvider]
 })
 export class FeatureModule {}

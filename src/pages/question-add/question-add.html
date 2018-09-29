@@ -7,12 +7,35 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>QuestionAddPage</ion-title>
+    <ion-title>Добавить вопрос</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="question-create">
+    <textarea id="" cols="30" rows="5" class="lesson-create-area" placeholder="Вопрос..."></textarea>
+  </div>
 
+  <div class="question-selector">
+
+    <div class="button__item test-selector__create" *ngIf="variants.length === 0" (click)="addVariant()">
+      <div>
+        <p>+</p>
+      </div>
+    </div>
+
+    <div *ngIf="variants.length" class="test-selector__item__wrapper">
+      <div class="variants-selector__variant" *ngFor="let variant of variants; let i = index">
+        <input type="text" [value]="variants[i]">
+      </div>
+      <div class="button__item variants-selector__create" (click)="addVariant()">
+        <div>
+          <p>+</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </ion-content>
