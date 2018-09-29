@@ -34,6 +34,11 @@ export class TestPage {
   ) {}
 
   ionViewDidLoad() {
+    if (!this.navParams.data.test) {
+      window.location.href = "#/";
+      return 0;
+    }
+
     const data = this.navParams.data;
     const test = data.test;
     this.title = this.navParams.data.title;

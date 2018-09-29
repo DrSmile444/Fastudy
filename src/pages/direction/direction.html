@@ -11,9 +11,9 @@
 
 
 <ion-content padding>
-  <ul class="list" *ngIf="directionLessons.length">
+  <ul class="list" *ngIf="directionLessons && directionLessons.length">
     <li *ngFor="let lesson of directionLessons" class="list__item" (click)="onLessonClick(lesson)">
-      <p class="list__item__title">{{lesson}}</p>
+      <p class="list__item__title">{{lesson.title}}</p>
     </li>
   </ul>
 </ion-content>

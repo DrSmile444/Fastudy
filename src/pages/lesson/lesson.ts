@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { lessonsExample } from "../base.example";
 
 @IonicPage({
   name: "lesson-page",
@@ -19,10 +18,15 @@ export class LessonPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
+    if (!this.navParams.data.data) {
+      window.location.href = "#/";
+      return 0;
+    }
+
     const name = this.navParams.data.id;
-    this.data = lessonsExample[name];
+    this.data = this.navParams.data.data;
     this.theory = (<any>this.data).theory.split("\n");
-    this.title = (<any>this.data).title || name;
+    this.title = this.truncate((<any>this.data).title || name, 20);
     this.test = (<any>this.data).test;
   }
 

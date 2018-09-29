@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { FeatureModule } from "../services/servicesModule";
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
@@ -12,7 +13,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 
 @NgModule({
   declarations: [MyApp, HomePage, ListPage, TestResultPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule, IonicModule.forRoot(MyApp), FeatureModule],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, ListPage, TestResultPage],
   providers: [

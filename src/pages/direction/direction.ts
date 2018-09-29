@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { directionExample } from "../base.example";
+import { FirebaseProvider } from "../../services/firebaseHelper";
 
 @IonicPage({
   name: "direction-page",
@@ -11,9 +12,14 @@ import { directionExample } from "../base.example";
   templateUrl: "direction.html"
 })
 export class DirectionPage {
+  data = [];
   directionName: String = "";
   directionLessons: Array<any> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public firebase: FirebaseProvider
+  ) {}
 
   public goBack() {
     this.navCtrl.goToRoot({
@@ -22,14 +28,25 @@ export class DirectionPage {
   }
 
   ionViewDidLoad() {
-    const name = this.navParams.data.id;
-    this.directionName = name;
-    this.directionLessons = directionExample[name];
+    if (!this.navParams.data.data) {
+      window.location.href = "#/";
+      return 0;
+    }
+
+    const data = this.navParams.data;
+    this.data = data;
+    this.directionName = data.id;
+    this.setLessonList();
+  }
+
+  public setLessonList() {
+    this.directionLessons = this.data.data;
   }
 
   public onLessonClick(lesson) {
     this.navCtrl.push("lesson-page", {
-      id: lesson
+      id: lesson.title,
+      data: lesson
     });
   }
 }
