@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 @IonicPage({
   name: "lesson-page",
-  segment: "group/:id"
+  segment: "lesson/:id"
 })
 @Component({
   selector: "page-lesson",

@@ -12,7 +12,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 export class LessonAddPage {
   data = {};
   title = "";
-  questions: Array<any> = [{ title: "hey" }];
+  questions: Array<any> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

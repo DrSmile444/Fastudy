@@ -10,4 +10,21 @@ page-lesson-add {
       resize: none;
     }
   }
+
+  .test-selector {
+    padding-top: 10px;
+    &__item {
+      width: 50px;
+      height: 50px;
+      background-color: #ededed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__create {
+      font-size: 25px;
+      // font-weight: bold;
+    }
+  }
 }

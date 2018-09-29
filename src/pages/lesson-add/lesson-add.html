@@ -17,19 +17,25 @@
   <div class="lesson-create">
     <textarea id="" cols="30" rows="5" class="lesson-create-area" placeholder="Теория..."></textarea>
   </div>
+
+  <h1>Вопросы:</h1>
+
   <div class="test-selector">
 
-    <div class="test-selector__item test-selector__create" *ngIf="!questions.length">
-      <p>+</p>
-    </div>
-
-    <div *ngIf="questions.length">
-      <div class="test-selector__item" *ngFor="let question of questions">{{question.title}}</div>
-      <div class="test-selector__item test-selector__create">
+    <div class="test-selector__item test-selector__create" *ngIf="questions.length === 0">
+      <div>
         <p>+</p>
       </div>
     </div>
 
+    <div *ngIf="questions.length" class="test-selector__item__wrapper">
+      <div class="test-selector__item" *ngFor="let question of questions">{{question.title}}</div>
+      <div class="test-selector__item test-selector__create">
+        <div>
+          <p>+</p>
+        </div>
+      </div>
+    </div>
 
   </div>
 </ion-content>

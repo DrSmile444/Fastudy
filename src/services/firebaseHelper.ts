@@ -5,8 +5,6 @@ import { AlertController } from "ionic-angular";
 import firebase from "firebase";
 import config from "../config";
 
-import { AngularFirebase } from "@angular/fire/firebase";
-
 @Injectable()
 export class FirebaseProvider {
   constructor(public http: HttpClient, private alertCtrl: AlertController) {

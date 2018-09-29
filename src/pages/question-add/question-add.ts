@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the QuestionAddPage page.
@@ -8,18 +8,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: "question-add-page",
+  segment: "question-add/:id"
+})
 @Component({
-  selector: 'page-question-add',
-  templateUrl: 'question-add.html',
+  selector: "page-question-add",
+  templateUrl: "question-add.html"
 })
 export class QuestionAddPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionAddPage');
+    console.log("ionViewDidLoad QuestionAddPage");
   }
-
 }
