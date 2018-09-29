@@ -8,11 +8,12 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
   <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <ion-slides id="direction-slider">
+    <ion-slide *ngFor="let slide of directionSlider">
+      <h1>Slide 1</h1>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>
