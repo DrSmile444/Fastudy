@@ -39,6 +39,15 @@ $app-direction: ltr;
   }
 }
 
+.custom {
+  &-button {
+    &-white {
+      font-size: 2em;
+      background-color: #fff;
+    }
+  }
+}
+
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.

@@ -8,14 +8,12 @@
 
   <ion-navbar>
     <ion-title>{{title}}</ion-title>
+    <button (click)="goToTest(test)" class="custom-button-white">
+      <ion-icon name="list"></ion-icon>
+    </button>
   </ion-navbar>
 
-  <button (click)="goBack()" class="custom-back-button back-button">
-    <ion-icon name="md-arrow-back"></ion-icon>
-  </button>
-
 </ion-header>
-
 
 <ion-content padding>
   <div class="lesson">

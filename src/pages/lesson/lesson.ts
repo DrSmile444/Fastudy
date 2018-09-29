@@ -14,7 +14,7 @@ export class LessonPage {
   title: String = "";
   data: Object;
   theory: Array<any> = [];
-  // theory = "";
+  test: Array<Object> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -23,5 +23,13 @@ export class LessonPage {
     this.data = lessonsExample[name];
     this.theory = (<any>this.data).theory.split("\n");
     this.title = (<any>this.data).title || name;
+    this.test = (<any>this.data).test;
+  }
+
+  public goToTest(test: Array<any>) {
+    this.navCtrl.push("test-page", {
+      test,
+      title: this.title
+    });
   }
 }
