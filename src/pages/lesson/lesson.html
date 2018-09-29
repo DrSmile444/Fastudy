@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>LessonPage</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
+
+  <button (click)="goBack()" class="custom-back-button back-button">
+    <ion-icon name="md-arrow-back"></ion-icon>
+  </button>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="lesson">
+    <p class="lesson-text" *ngFor="let paragraph of theory">
+      {{paragraph}}
+    </p>
+  </div>
 
 </ion-content>

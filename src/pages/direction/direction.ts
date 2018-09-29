@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { directionExample } from "./directions.example";
+import { directionExample } from "../base.example";
 
 @IonicPage({
   name: "direction-page",
@@ -25,8 +25,6 @@ export class DirectionPage {
     const name = this.navParams.data.id;
     this.directionName = name;
     this.directionLessons = directionExample[name];
-    console.log(this.directionLessons);
-    console.log("ionViewDidLoad DirectionPage");
   }
 
   public onLessonClick(lesson) {

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { directionExample } from "./directions.example";
+import { lessonsExample } from "../base.example";
 
 @IonicPage({
   name: "lesson-page",
@@ -11,9 +11,17 @@ import { directionExample } from "./directions.example";
   templateUrl: "lesson.html"
 })
 export class LessonPage {
+  title: String = "";
+  data: Object;
+  theory: Array<any> = [];
+  // theory = "";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad LessonPage");
+    const name = this.navParams.data.id;
+    this.data = lessonsExample[name];
+    this.theory = (<any>this.data).theory.split("\n");
+    this.title = (<any>this.data).title || name;
   }
 }
