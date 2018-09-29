@@ -21,14 +21,20 @@ export class HomePage {
     }
   ];
 
-  directionList: Array<String> = [
-    "Программирование",
-    "Кэмпинг",
-    "Медицина",
-    "Рыбалка",
-    "Исскуство",
-    "Фильмы"
+  directionList: Array<Object> = [
+    { title: "Программирование" },
+    { title: "Кэмпинг" },
+    { title: "Медицина" },
+    { title: "Рыбалка" },
+    { title: "Исскуство" },
+    { title: "Фильмы" }
   ];
 
   constructor(public navCtrl: NavController) {}
+
+  public onDirectionClick(direction) {
+    this.navCtrl.push("direction-page", {
+      id: direction
+    });
+  }
 }

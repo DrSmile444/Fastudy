@@ -1,19 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="directions-navbar">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Fastudy</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-
-  <ion-slides id="direction-slider">
+  <ion-slides class="directions-slider" *ngIf="directionSlider.length">
     <ion-slide *ngFor="let slide of directionSlider">
-      <h1>Slide 1</h1>
+      <h1>{{slide.name}}</h1>
     </ion-slide>
-
   </ion-slides>
+
+  <ul class="directions-list" *ngIf="directionList.length">
+    <li *ngFor="let slide of directionList" class="directions-list__item" (click)="onDirectionClick(slide.title)">
+      <p class="directions-list__item__title">{{slide.title}}</p>
+    </li>
+  </ul>
+
 </ion-content>
