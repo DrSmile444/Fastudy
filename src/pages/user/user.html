@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>UserPage</ion-title>
+    <ion-title>Мой прогресс</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div class="user">
+    <div class="user-wrapper">
+      <div class="user-image">
+        <p class="user-image__letter">{{userLetter}}</p>
+      </div>
+      <div class="user-name">
+        <p class="user-name__text">{{userName}}</p>
+      </div>
+    </div>
+
+    <div class="user-lvl">
+      <div class="user-lvl__current">{{userCurrentLvl}} lvl</div>
+      <div class="user-lvl__progress-wrapper">
+        Осталось {{userCurrentRemainder}} exp
+        <div class="user-lvl__progress">
+          <div [class]="getPercentProgress()"> </div>
+        </div>
+      </div>
+      <div class="user-lvl__next">{{userCurrentLvl + 1}} lvl</div>
+    </div>
+
+    <div class="user-most-likely">
+      <h1>Любимый курс:</h1>
+      <div class="user-most-likely__course">
+        {{userMostLikelyCourse}}
+      </div>
+    </div>
+
+    <h1>Достижения:</h1>
+
+    <div class="user-badges">
+      <div class="user-badges__badge" *ngFor="let badges of badgesArray; let i = index">
+        <img [class]="compareBadges(i)" [src]="badges">
+      </div>
+    </div>
+  </div>
 
 </ion-content>

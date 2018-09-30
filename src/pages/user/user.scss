@@ -1,3 +1,116 @@
-page-user {
+$userSize: 40px;
+$badgeSize: 100px;
 
+page-user {
+  .user {
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-image {
+      height: $userSize;
+      width: $userSize;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fe5d33;
+      box-shadow: $shadow;
+    }
+
+    &-name {
+      margin-left: 10px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    &-lvl {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+
+      &__current,
+      &__next {
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      &__progress {
+        height: 10px;
+        background-color: #cecece;
+        width: 100%;
+        margin-top: 5px;
+        box-shadow: $shadow;
+
+        &-wrapper {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        &-level {
+          width: 90%;
+          background-color: #24e74a;
+          height: 100%;
+          z-index: 5;
+        }
+      }
+    }
+
+    &-most-likely {
+      margin-top: 20px;
+    }
+
+    &-badges {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      &__badge {
+        margin: 10px;
+        &-image {
+          height: $badgeSize;
+          width: $badgeSize;
+        }
+      }
+    }
+  }
+
+  .blur {
+    filter: blur(5px);
+  }
+
+  .got {
+    filter: sepia(50%);
+  }
+
+  .w90 {
+    width: 90%;
+  }
+
+  .w75 {
+    width: 75%;
+  }
+
+  .w50 {
+    width: 50%;
+  }
+
+  .w25 {
+    width: 25%;
+  }
+
+  .w5 {
+    width: 5%;
+  }
+
+  .w0 {
+    width: 0%;
+  }
 }
