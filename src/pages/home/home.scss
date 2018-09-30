@@ -28,7 +28,8 @@ page-home {
         }
       }
       &__item:hover{
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        box-shadow: 0 0 10px 0 rgb(136, 144, 131);
+        background-position: 0 0;
       }
       &__item:nth-child(1){
         animation: shadow  .4s  ease-in-out;
@@ -38,6 +39,12 @@ page-home {
       }
       &__item:nth-child(3){
         animation: shadow  1s  ease-in-out;
+      }
+      &__item:nth-child(4){
+        animation: shadow  1.5s  ease-in-out;
+      }
+      &__item:nth-child(5){
+        animation: shadow  1.8s  ease-in-out;
       }
     }
   }
