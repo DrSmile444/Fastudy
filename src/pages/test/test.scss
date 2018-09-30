@@ -1,21 +1,28 @@
 page-test {
   .question {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     &-wrapper {
       color: white;
-      background-color: crimson;
-    }
 
+    }
     &-text {
+      width: 100%;
+     color: #222222;
       font-size: 3rem;
       text-align: center;
     }
-
     &-variant {
+      transition: .3s box-shadow;
+      cursor: pointer;
+      color: #222222;
       display: flex;
       align-items: center;
       margin-bottom: 20px;
 
       &__circle {
+        border: 1px solid #222222;
         background-color: white;
         height: 25px;
         width: 25px;
@@ -28,5 +35,44 @@ page-test {
         margin-left: 10px;
       }
     }
+    &-variant:nth-child(1){
+      animation: shadow  .4s  ease-in-out;
+    }
+    &-variant:nth-child(2){
+      animation: shadow  .7s  ease-in-out;
+    }
+    &-variant:nth-child(3){
+      animation: shadow  1s  ease-in-out;
+    }
+    &-variant:nth-child(4){
+      animation: shadow 1.4s  ease-in-out;
+    }
+    &-variant:nth-child(5){
+      animation: shadow 1.8s  ease-in-out;
+    }
+    &_button_next{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button{
+        font-size: 2rem;
+        padding: 1rem 1rem 1rem 2rem;
+        background: none;
+        border: 1px solid #222222;
+        position: relative;
+        overflow: hidden;
+        ion-icon{
+          transform: translateX(100px);
+          transition: .7s;
+          opacity: 0;
+        }
+      }
+      button:hover  ion-icon{
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   }
 }
+
+

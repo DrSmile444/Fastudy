@@ -1,51 +1,93 @@
 $markSize: 50px;
 
 page-test-result {
+
   .result {
     &-text {
       text-align: center;
     }
-
     &-marks {
       height: $markSize;
       width: $markSize;
       margin-bottom: 20px;
-
       &-wrapper {
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
       }
-
       &__single {
         height: $markSize;
         width: $markSize;
-
         &__true {
           height: $markSize;
           width: $markSize;
-          background-color: #6ce56c;
+          border:10px solid rgba(0,0,0,0);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: bold;
           color: black;
+          animation: bor-gr  2s ease-in-out ;
+          animation-fill-mode: both;
         }
 
         &__false {
           height: $markSize;
           width: $markSize;
-          background-color: #e94545;
+          border:10px solid  rgba(0,0,0,0);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: bold;
-          color: white;
+          color: black;
+          animation: bor-red  2s ease-in-out ;
+          animation-fill-mode: both;
         }
       }
     }
+  }
+}
+@keyframes bor-gr {
+  from {border-top: 10px solid #6ce56c}
+  25% {border-right: 10px solid #6ce56c;
+    border-top: 10px solid #6ce56c}
+  70% {border-right: 10px solid #6ce56c;
+    border-top: 10px solid #6ce56c;
+    border-bottom: 10px solid #6ce56c}
+  100% {border-left: 10px solid #6ce56c;
+    border-right: 10px solid #6ce56c;
+    border-top: 10px solid #6ce56c;
+    border-bottom: 10px solid #6ce56c}
+}
+@keyframes bor-red {
+  from {border-top: 10px solid #e50200
+  }
+  25% {border-right: 10px solid #e50200;
+    border-top: 10px solid #e50200}
+  70% {border-right: 10px solid #e50200;
+    border-top: 10px solid #e50200;
+    border-bottom: 10px solid #e50200}
+  100% {border-left: 10px solid #e50200;
+    border-right: 10px solid #e50200;
+    border-top: 10px solid #e50200;
+    border-bottom: 10px solid #e50200}
+}
+.modal-wrapper{
+  animation: vis  .5s;
+  animation-fill-mode: both;
+}
+
+@keyframes vis {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -20,6 +20,8 @@
       <div class="question-variant__circle"></div>
       <div class="question-variant__text">{{variant.text}}</div>
     </div>
-    <button (click)="setNextQuestion()" *ngIf="showNextButton">Next question</button>
+    <div class="question_button_next">
+      <button (click)="setNextQuestion()" *ngIf="showNextButton">Next question  <ion-icon name="arrow-forward"></ion-icon></button>
+    </div>
   </div>
 </ion-content>

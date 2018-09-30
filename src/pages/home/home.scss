@@ -14,17 +14,30 @@ page-home {
       list-style-type: none;
 
       &__item {
+        transition: .3s box-shadow;
+        cursor: pointer;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         align-items: center;
         padding: 0;
-        border-bottom: 1px solid white;
+        margin: 2rem 0;
         background-color: #ccc;
-
         &__title {
-          margin-left: 30px;
+          padding-left: 30px;
         }
+      }
+      &__item:hover{
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+      &__item:nth-child(1){
+        animation: shadow  .4s  ease-in-out;
+      }
+      &__item:nth-child(2){
+        animation: shadow  .7s  ease-in-out;
+      }
+      &__item:nth-child(3){
+        animation: shadow  1s  ease-in-out;
       }
     }
   }
