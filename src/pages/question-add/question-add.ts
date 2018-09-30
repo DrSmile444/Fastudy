@@ -9,7 +9,7 @@ import { LessonHelper } from "../../services/lessonHelper";
 
 @IonicPage({
   name: "question-add-page",
-  segment: "question-add/:id"
+  segment: "question-add"
 })
 @Component({
   selector: "page-question-add",
@@ -18,6 +18,7 @@ import { LessonHelper } from "../../services/lessonHelper";
 export class QuestionAddPage {
   question = "";
   variants = [];
+  right = 0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,45 +26,50 @@ export class QuestionAddPage {
     public toastCtrl: ToastController
   ) {}
 
-  ionViewDidLoad() {
-    console.log(this.navParams.data);
-    console.log("ionViewDidLoad QuestionAddPage");
-  }
+  ionViewDidLoad() {}
 
   public addVariant() {
     this.variants.push("");
   }
 
   public submitQuestion() {
-    let breakFunc = false;
-    if (this.question.length < 10) {
-      this.showToast("Слишком маленький вопрос");
-      return 1;
-    } else if (this.variants.length < 2) {
-      this.showToast("Минимум два варианта");
-      return 1;
-    }
+    // let breakFunc = false;
+    // if (this.question.length < 10) {
+    //   this.showToast("Слишком маленький вопрос");
+    //   return 1;
+    // } else if (this.variants.length < 2) {
+    //   this.showToast("Минимум два варианта");
+    //   return 1;
+    // }
 
-    this.variants.forEach(element => {
-      if (element.trim() === "") {
-        this.showToast("Вариант не может быть пустым");
-        breakFunc = true;
-        return 1;
-        // break;
-      }
-    });
+    // this.variants.forEach(element => {
+    //   if (element.trim() === "") {
+    //     this.showToast("Вариант не может быть пустым");
+    //     breakFunc = true;
+    //     return 1;
+    //     // break;
+    //   }
+    // });
 
-    if (breakFunc) return 1;
+    // if (breakFunc) return 1;
 
-    this.navCtrl.push("lesson-add-page");
-    this.lessonHelper.questionSubject.next({
-      text: this.question,
+    const setObj = {
+      question: this.question,
       variants: this.variants
+    };
+
+    console.log("our data: ", setObj);
+
+    this.navCtrl.pop();
+    this.lessonHelper.questionSubject.next({
+      data: setObj,
+      time: Date.now(),
+      right: this.right
     });
   }
 
-  public log(param, index) {
-    this.variants[index] = param.target.value;
+  public setRightAnswer(event) {
+    (<any>this.right) = event.target.value;
   }
 
   public showToast(text) {

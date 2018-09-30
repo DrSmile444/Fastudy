@@ -6,8 +6,10 @@
     </button>
     <ion-title>{{directionName}}</ion-title>
 
+    <ion-buttons></ion-buttons>
+
     <button (click)="addLesson()" class="custom-back-button">
-      <ion-icon ios="ios-create" md="md-create"></ion-icon>
+      <ion-icon ios="ios-create" md="md-create" class="ionic-button-class"></ion-icon>
     </button>
   </ion-navbar>
 
@@ -17,7 +19,7 @@
 <ion-content padding>
   <ul class="list" *ngIf="directionLessons && directionLessons.length">
     <li *ngFor="let lesson of directionLessons" class="list__item" (click)="onLessonClick(lesson)">
-      <p class="list__item__title">{{lesson.title}}</p>
+      <p class="list__item__title">{{lesson && lesson.title}}</p>
     </li>
   </ul>
 </ion-content>

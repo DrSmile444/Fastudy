@@ -36,11 +36,6 @@ export class HomePage {
 
   public setDirectionList() {
     const serverDirectionList = [];
-    const cache = localStorage.getItem("serverDirectionList");
-
-    // if (cache) {
-    //   this.directionList = JSON.parse(cache);
-    // }
 
     this.firebase.getData("/subjects/").on("value", snapshot => {
       const data = snapshot.val();
@@ -71,7 +66,11 @@ export class HomePage {
   private getLessonData(name) {
     for (let i = 0, n = this.data.length; i < n; i++) {
       if (this.data[i].title === name) {
-        return this.data[i].lessons;
+        return {
+          data: this.data[i].lessons,
+          path: "subjects/" + i,
+          title: this.data[i].title
+        };
       }
     }
   }

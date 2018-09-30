@@ -1,4 +1,8 @@
 page-lesson-add {
+  .button__item {
+    margin-top: 20px;
+  }
+
   .lesson-create {
     padding-top: 10px;
     width: 100%;
@@ -14,6 +18,13 @@ page-lesson-add {
       justify-content: center;
       align-items: center;
       box-shadow: $shadow;
+
+      &__wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+      }
     }
 
     &__create {

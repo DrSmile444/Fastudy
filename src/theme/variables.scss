@@ -68,14 +68,24 @@ input {
   align-items: center;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-*{
+
+.ionic-button-class {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+* {
   box-sizing: border-box;
 }
 @keyframes shadow {
-  from { opacity: 0;
-    transform: translateX(200px);}
-  to { opacity: 1;
-    transform: translateX(0);}
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 // Named Color Variables
 // --------------------------------------------------
@@ -95,36 +105,33 @@ $colors: (
 
 $shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
+.toolbar-background,
+.toolbar-background-md {
+  background: #fee533 !important;
+}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can
 // then be future customized. This import comes last
 // so that the above variables are used and Ionic's
 // default are overridden.
-
 @import "ionic.theme.default";
-
 // Ionicons
 // --------------------------------------------------
+
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
-
 @import "ionic.ionicons";
-
 // Fonts
 // --------------------------------------------------
-
 @import "roboto";
 @import "noto-sans";

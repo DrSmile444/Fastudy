@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { LessonHelper } from "../../services/lessonHelper";
+import { FirebaseProvider } from "../../services/firebaseHelper";
 import { take } from "rxjs/operators";
 
 @IonicPage({
   name: "lesson-add-page",
-  segment: "lesson-add/:id"
+  segment: "lesson-add"
 })
 @Component({
   selector: "page-lesson-add",
@@ -14,31 +15,73 @@ import { take } from "rxjs/operators";
 export class LessonAddPage {
   data = {};
   title = "";
-  questions: Array<any> = [];
+  titleTruncated = "";
+  theory = "";
+  questions = [];
+  correct = [];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public lessonHelper: LessonHelper
+    public lessonHelper: LessonHelper,
+    public firebase: FirebaseProvider
   ) {}
+  ngOnInit(): void {
+    if (!this.navParams.data.path) {
+      this.navCtrl.goToRoot({});
+    }
+    this.lessonHelper.questionSubject
+      // .pipe(take(1))
+      .subscribe(el => {
+        this.correct.push((<any>el).right);
+        this.questions = [...this.questions, (<any>el).data];
+        console.log(this.questions);
+      });
+  }
 
   ionViewDidLoad() {
     const data = this.navParams.data;
     this.data = data;
 
-    this.lessonHelper.questionSubject.pipe(take(1)).subscribe(el => {
-      console.log(el);
-    });
-    // console.log(this.lessonHelper);
-
     this.title = data.title;
+  }
 
-    console.log("ionViewDidLoad LessonAddPage");
+  public submitLesson() {
+    const { title, theory, questions, correct } = this;
+    const lessonObj = {
+      title,
+      theory,
+      test: {
+        correct,
+        questions
+      }
+    };
+
+    this.firebase
+      .getData(this.navParams.data.path)
+      .once("value")
+      .then(snapshot => {
+        const array = [...snapshot.val(), lessonObj];
+
+        console.log(array);
+
+        this.firebase.setData(this.navParams.data.path, array);
+      });
+  }
+
+  public truncateTitle() {
+    this.titleTruncated = this.truncate(this.title, 10);
+  }
+
+  public truncate(str, maxlength) {
+    return str.length > maxlength ? str.slice(0, maxlength - 3) + "..." : str;
   }
 
   public addQuestion(question) {
-    this.navCtrl.push("question-add-page", {
+    const setObj = {
       question
-    });
+    };
+
+    this.navCtrl.push("question-add-page", setObj);
   }
 }

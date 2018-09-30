@@ -20,4 +20,14 @@ export class FirebaseProvider {
 
     return database.ref(path);
   }
+
+  public setData(path, data) {
+    const database = firebase.database();
+    database.ref(path).set(data);
+  }
+  public pushData(path, data) {
+    const database = firebase.database();
+
+    database.ref(path).push(data);
+  }
 }

@@ -33,9 +33,10 @@ export class DirectionPage {
       return 0;
     }
 
-    const data = this.navParams.data;
+    const data = this.navParams.data.data;
+    console.log(data);
     this.data = data;
-    this.directionName = data.id;
+    this.directionName = data.title;
     this.setLessonList();
   }
 
@@ -52,7 +53,8 @@ export class DirectionPage {
 
   public addLesson() {
     this.navCtrl.push("lesson-add-page", {
-      title: this.directionName
+      title: this.directionName,
+      path: this.navParams.data.data.path + "/lessons"
     });
   }
 }

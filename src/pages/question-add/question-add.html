@@ -37,9 +37,20 @@
       <div class="variants-selector__variant" *ngFor="let variant of variants trackBy:trackByIdx; let i = index">
         <input type="text" [(ngModel)]="variants[i]" placeholder="Вариант...">
       </div>
-      <div class="button__item variants-selector__create" (click)="addVariant()">
-        <div>
-          <p>+</p>
+      <div>
+        <div class="button__item variants-selector__create" (click)="addVariant()">
+          <div>
+            <p>+</p>
+          </div>
+        </div>
+        <h2>Правильный ответ:</h2>
+        <div class="variant-selector__select">
+          <select *ngIf="variants.length === 0">
+            <option value="">Выберите правильный вариант</option>
+          </select>
+          <select (change)="setRightAnswer($event)" *ngIf="variants.length">
+            <option [value]="i" *ngFor="let variant of variants; let i = index">{{variant}}</option>
+          </select>
         </div>
       </div>
     </div>
