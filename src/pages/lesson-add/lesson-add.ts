@@ -61,7 +61,7 @@ export class LessonAddPage {
       .getData(this.navParams.data.path)
       .once("value")
       .then(snapshot => {
-        const array = [...snapshot.val(), lessonObj];
+        const array = [...(snapshot.val() || []), lessonObj];
 
         console.log(array);
 
