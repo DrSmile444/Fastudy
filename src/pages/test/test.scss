@@ -1,0 +1,32 @@
+page-test {
+  .question {
+    &-wrapper {
+      color: white;
+      background-color: crimson;
+    }
+
+    &-text {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    &-variant {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &__circle {
+        background-color: white;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+      }
+
+      &__text {
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

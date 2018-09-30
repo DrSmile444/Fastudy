@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <button (click)="goBack()" class="custom-back-button back-button">
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+    <ion-title>{{directionName}}</ion-title>
+
+    <button (click)="addLesson()" class="custom-back-button">
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ul class="list" *ngIf="directionLessons && directionLessons.length">
+    <li *ngFor="let lesson of directionLessons" class="list__item" (click)="onLessonClick(lesson)">
+      <p class="list__item__title">{{lesson.title}}</p>
+    </li>
+  </ul>
+</ion-content>

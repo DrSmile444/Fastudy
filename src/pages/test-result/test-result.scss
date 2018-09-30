@@ -1,0 +1,51 @@
+$markSize: 50px;
+
+page-test-result {
+  .result {
+    &-text {
+      text-align: center;
+    }
+
+    &-marks {
+      height: $markSize;
+      width: $markSize;
+      margin-bottom: 20px;
+
+      &-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      &__single {
+        height: $markSize;
+        width: $markSize;
+
+        &__true {
+          height: $markSize;
+          width: $markSize;
+          background-color: #6ce56c;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          color: black;
+        }
+
+        &__false {
+          height: $markSize;
+          width: $markSize;
+          background-color: #e94545;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          color: white;
+        }
+      }
+    }
+  }
+}

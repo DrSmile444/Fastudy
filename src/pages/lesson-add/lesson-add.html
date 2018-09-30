@@ -1,0 +1,46 @@
+<!--
+  Generated template for the LessonAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Добавить урок: {{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Имя:</h1>
+  <div class="title-create">
+    <input type="text" placeholder="Имя...">
+  </div>
+  <h1>Теория:</h1>
+  <div class="lesson-create">
+    <textarea id="" cols="30" rows="7" class="lesson-create-area" placeholder="Теория..."></textarea>
+  </div>
+
+  <h1>Вопросы:</h1>
+
+  <div class="test-selector">
+
+    <div class="test-selector__item test-selector__create" *ngIf="questions.length === 0" (click)="addQuestion()">
+      <div>
+        <p>+</p>
+      </div>
+    </div>
+
+    <div *ngIf="questions.length" class="test-selector__item__wrapper">
+      <div class="button__item" *ngFor="let question of questions" (click)="addQuestion(question)">{{question.title}}</div>
+      <div class="button__item test-selector__create" (click)="addQuestion()">
+        <div>
+          <p>+</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
