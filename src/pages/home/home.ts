@@ -9,21 +9,17 @@ import { FirebaseProvider } from "../../services/firebaseHelper";
 export class HomePage {
   data: Array<any> = [];
   directionList: Array<Object> = [];
-
   constructor(
     public navCtrl: NavController,
     public firebase: FirebaseProvider,
     public alertCtrl: AlertController
   ) {}
-
   ngOnInit(): void {
     this.setDirectionList();
     this.checkIsUser();
   }
-
   public setDirectionList() {
     const serverDirectionList = [];
-
     this.firebase.getData("/subjects/").on("value", snapshot => {
       const data = snapshot.val();
       this.data = data;
@@ -38,7 +34,6 @@ export class HomePage {
       this.directionList = serverDirectionList;
     });
   }
-
   public checkIsUser() {
     const user = localStorage.getItem("userName");
 
@@ -70,7 +65,6 @@ export class HomePage {
       data: this.getLessonData(direction)
     });
   }
-
   private getLessonData(name) {
     for (let i = 0, n = this.data.length; i < n; i++) {
       if (this.data[i].title === name) {
