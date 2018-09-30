@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { LessonHelper } from "../../services/lessonHelper";
+import { take } from "rxjs/operators";
 
 @IonicPage({
   name: "lesson-add-page",
@@ -14,11 +16,20 @@ export class LessonAddPage {
   title = "";
   questions: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public lessonHelper: LessonHelper
+  ) {}
 
   ionViewDidLoad() {
     const data = this.navParams.data;
     this.data = data;
+
+    this.lessonHelper.questionSubject.pipe(take(1)).subscribe(el => {
+      console.log(el);
+    });
+    // console.log(this.lessonHelper);
 
     this.title = data.title;
 

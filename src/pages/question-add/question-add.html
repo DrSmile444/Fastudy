@@ -8,27 +8,34 @@
 
   <ion-navbar>
     <ion-title>Добавить вопрос</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="submitQuestion()">Сохранить</button>
+    </ion-buttons>
   </ion-navbar>
+
 
 </ion-header>
 
 
 <ion-content padding>
+  <h2>Вопрос:</h2>
   <div class="question-create">
-    <textarea id="" cols="30" rows="5" class="lesson-create-area" placeholder="Вопрос..."></textarea>
+    <textarea id="" cols="30" rows="5" class="lesson-create-area" placeholder="Вопрос..." [(ngModel)]="question"></textarea>
   </div>
+
+  <h2>Варианты:</h2>
 
   <div class="question-selector">
 
-    <div class="button__item test-selector__create" *ngIf="variants.length === 0" (click)="addVariant()">
+    <div class="button__item variants-selector__create" *ngIf="variants.length === 0" (click)="addVariant()">
       <div>
         <p>+</p>
       </div>
     </div>
 
     <div *ngIf="variants.length" class="test-selector__item__wrapper">
-      <div class="variants-selector__variant" *ngFor="let variant of variants; let i = index">
-        <input type="text" [value]="variants[i]">
+      <div class="variants-selector__variant" *ngFor="let variant of variants trackBy:trackByIdx; let i = index">
+        <input type="text" [(ngModel)]="variants[i]" placeholder="Вариант...">
       </div>
       <div class="button__item variants-selector__create" (click)="addVariant()">
         <div>
