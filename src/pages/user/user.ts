@@ -17,12 +17,12 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "user.html"
 })
 export class UserPage {
-  userName = "Dmitro Vakulenko";
+  userName = localStorage.getItem("userName");
   userLetter = "D";
   userCurrentLvl = 10;
-  userCurrentExp = localStorage.getItem("userXP");
+  userCurrentExp = localStorage.getItem("userXP") || 0;
   userExpGoal = 1200;
-  serverLevels = [10, 50, 100, 200, 500, 1000, 1500, 2000, 2500, 3000];
+  serverLevels = [0, 10, 50, 100, 200, 500, 1000, 1500, 2000, 2500, 3000];
   userCurrentRemainder = 10;
   userMostLikelyCourse = "Машины";
   userPercentProgress = 50;
@@ -47,40 +47,19 @@ export class UserPage {
     "Запоров найлегший тест", // 1 видповить и 0%
     "Спасатель" // пройшов медецину на 100%
   ];
-  badgesGotArray = [
-    true,
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    true
-  ];
+  badgesGotArray = "10000001001000101011";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    this.userLetter = this.userName[0].toUpperCase();
+    this.userLetter = this.userName && this.userName[0].toUpperCase();
     this.getBadgesArray();
     this.getLevel();
   }
 
   public getLevel() {
     this.serverLevels.forEach((level, index) => {
-      if (this.userCurrentExp > level) {
+      if (this.userCurrentExp >= level) {
         this.userCurrentLvl = index + 1;
         this.userExpGoal = this.serverLevels[index + 2];
         this.userPercentProgress =

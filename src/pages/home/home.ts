@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, AlertController } from "ionic-angular";
 import { FirebaseProvider } from "../../services/firebaseHelper";
 
 @Component({
@@ -8,30 +8,17 @@ import { FirebaseProvider } from "../../services/firebaseHelper";
 })
 export class HomePage {
   data: Array<any> = [];
-  // directionSlider: Array<Object> = [
-  //   {
-  //     name: "Кемпинг",
-  //     img: ""
-  //   },
-  //   {
-  //     name: "Медицина",
-  //     img: ""
-  //   },
-  //   {
-  //     name: "Программирование",
-  //     img: ""
-  //   }
-  // ];
-
   directionList: Array<Object> = [];
 
   constructor(
     public navCtrl: NavController,
-    public firebase: FirebaseProvider
+    public firebase: FirebaseProvider,
+    public alertCtrl: AlertController
   ) {}
 
   ngOnInit(): void {
     this.setDirectionList();
+    this.checkIsUser();
   }
 
   public setDirectionList() {
@@ -50,6 +37,31 @@ export class HomePage {
 
       this.directionList = serverDirectionList;
     });
+  }
+
+  public checkIsUser() {
+    const user = localStorage.getItem("userName");
+
+    if (!user) {
+      let alert = this.alertCtrl.create({
+        title: "Введите ваше имя:",
+        inputs: [
+          {
+            name: "username",
+            placeholder: "Имя"
+          }
+        ],
+        buttons: [
+          {
+            text: "Login",
+            handler: data => {
+              localStorage.setItem("userName", data.username);
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
   }
 
   public onDirectionClick(direction) {
