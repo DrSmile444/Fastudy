@@ -22,21 +22,16 @@ export class HomePage {
   //     img: ""
   //   }
   // ];
-
   directionList: Array<Object> = [];
-
   constructor(
     public navCtrl: NavController,
     public firebase: FirebaseProvider
   ) {}
-
   ngOnInit(): void {
     this.setDirectionList();
   }
-
   public setDirectionList() {
     const serverDirectionList = [];
-
     this.firebase.getData("/subjects/").on("value", snapshot => {
       const data = snapshot.val();
       this.data = data;
@@ -51,14 +46,12 @@ export class HomePage {
       this.directionList = serverDirectionList;
     });
   }
-
   public onDirectionClick(direction) {
     this.navCtrl.push("direction-page", {
       id: direction,
       data: this.getLessonData(direction)
     });
   }
-
   private getLessonData(name) {
     for (let i = 0, n = this.data.length; i < n; i++) {
       if (this.data[i].title === name) {

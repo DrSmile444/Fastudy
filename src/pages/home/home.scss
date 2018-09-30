@@ -44,7 +44,40 @@ page-home {
         animation: shadow  1.5s  ease-in-out;
       }
       &__item:nth-child(5){
-        animation: shadow  1.8s  ease-in-out;
+          animation: shadow  1.8s  ease-in-out;
+        }
+      &__item:nth-child(6){
+        animation: shadow  2s  ease-in-out;
+      }
+      &__item:nth-child(7){
+        animation: shadow  2.2s  ease-in-out;
+      }
+      &__item:nth-child(8){
+        animation: shadow  2.5s  ease-in-out;
+      }
+      &__item:nth-child(9){
+        animation: shadow  2.8s  ease-in-out;
+      }
+      &__item:nth-child(10){
+        animation: shadow  3s  ease-in-out;
+      }
+      &__item:nth-child(11){
+        animation: shadow  3.5s  ease-in-out;
+      }
+      &__item:nth-child(12){
+        animation: shadow  3.8s  ease-in-out;
+      }
+      &__item:nth-child(13){
+        animation: shadow  4s  ease-in-out;
+      }
+      &__item:nth-child(14){
+        animation: shadow  4.5s  ease-in-out;
+      }
+      &__item:nth-child(15){
+        animation: shadow  4.8s  ease-in-out;
+      }
+      &__item:nth-child(16){
+        animation: shadow  5s  ease-in-out;
       }
     }
   }

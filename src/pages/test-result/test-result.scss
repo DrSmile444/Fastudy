@@ -50,6 +50,12 @@ page-test-result {
     }
   }
 }
+.result_res{
+  width: 100%;
+  margin:  0 auto;
+  text-align: center;
+  font-size: 2rem;
+}
 @keyframes bor-gr {
   from {border-top: 10px solid #6ce56c}
   25% {border-right: 10px solid #6ce56c;
