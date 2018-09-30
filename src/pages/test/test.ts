@@ -100,7 +100,7 @@ export class TestPage {
       dot.style.background = "#fff";
     });
 
-    (<any>dots[index]).style.background = "rgba(0,0,0,.5)";
+    (<any>dots[index]).style.background = "#fff500";
   }
 
   public setFontSize(text) {
