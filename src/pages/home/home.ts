@@ -8,20 +8,20 @@ import { FirebaseProvider } from "../../services/firebaseHelper";
 })
 export class HomePage {
   data: Array<any> = [];
-  directionSlider: Array<Object> = [
-    {
-      name: "Кемпинг",
-      img: ""
-    },
-    {
-      name: "Медицина",
-      img: ""
-    },
-    {
-      name: "Программирование",
-      img: ""
-    }
-  ];
+  // directionSlider: Array<Object> = [
+  //   {
+  //     name: "Кемпинг",
+  //     img: ""
+  //   },
+  //   {
+  //     name: "Медицина",
+  //     img: ""
+  //   },
+  //   {
+  //     name: "Программирование",
+  //     img: ""
+  //   }
+  // ];
 
   directionList: Array<Object> = [];
 
@@ -49,10 +49,6 @@ export class HomePage {
       });
 
       this.directionList = serverDirectionList;
-      localStorage.setItem(
-        "serverDirectionList",
-        JSON.stringify(serverDirectionList)
-      );
     });
   }
 
