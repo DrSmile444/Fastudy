@@ -1,2 +1,24 @@
 page-direction {
+
+}
+.toolbar-content-md{
+  display: flex;
+}
+.list__item{
+  border: none;
+  transition: .3s box-shadow;
+  cursor:pointer;
+  margin: 2rem 0;
+}
+.list__item:nth-child(1){
+  animation: shadow  .4s  ease-in-out;
+}
+.list__item:nth-child(2){
+  animation: shadow  .7s  ease-in-out;
+}
+.list__item:nth-child(3){
+  animation: shadow  1s  ease-in-out;
+}.list__item:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
 }
