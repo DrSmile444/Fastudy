@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-slides class="directions-slider" *ngIf="directionSlider.length">
+  <ion-slides class="directions-slider" *ngIf="directionSlider && directionSlider.length">
     <ion-slide *ngFor="let slide of directionSlider">
       <h1>{{slide.name}}</h1>
     </ion-slide>

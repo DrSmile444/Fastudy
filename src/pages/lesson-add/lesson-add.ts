@@ -61,11 +61,14 @@ export class LessonAddPage {
       .getData(this.navParams.data.path)
       .once("value")
       .then(snapshot => {
-        const array = [...(snapshot.val() || []), lessonObj];
+        let array = [lessonObj];
 
-        console.log(array);
+        if (snapshot.val()) {
+          array = [...(snapshot.val() || []), lessonObj];
+        }
 
         this.firebase.setData(this.navParams.data.path, array);
+        this.navCtrl.goToRoot({});
       });
   }
 
